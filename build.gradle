@@ -1,0 +1,18 @@
+apply plugin: 'java'
+
+repositories {
+	jcenter()
+}
+dependencies {
+	runtime group: 'org.apache.hive', name: 'hive-jdbc', version: '2.1.0'
+}
+
+task runApp(type: JavaExec) {
+	main = 'example.Example'
+	classpath = sourceSets.main.runtimeClasspath
+}
+
+// wrapper
+task wrapper(type: Wrapper) {
+	gradleVersion = "${gradleVersion}"
+}
